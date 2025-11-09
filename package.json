@@ -1,22 +1,21 @@
 {
-  "name": "s_db",
+  "name": "@perfobyte/database",
   "version": "1.0.0",
   "description": "A simple and highly scalable database for any JavaScript hosting environment.",
   "keywords": [
     "db",
     "database",
-    "perfobytes",
     "perfobyte",
-    "s_db",
-    "s"
+    "javascript",
+    "nodejs"
   ],
-  "homepage": "https://github.com/perfobyte/s_db#readme",
+  "homepage": "https://github.com/perfobyte/database#readme",
   "bugs": {
-    "url": "https://github.com/perfobyte/s_db/issues"
+    "url": "https://github.com/perfobyte/database/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/perfobyte/s_db.git"
+    "url": "git+https://github.com/perfobyte/database.git"
   },
   "license": "MIT",
   "author": "PerfoByte",

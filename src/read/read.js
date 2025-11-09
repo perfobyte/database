@@ -3,9 +3,9 @@ export default (
     (
       fd,
       
-      c,s,
+      cursor,response,
       
-      bs,el,
+      block_size,entry_length,
       
       block_id,limit,
       
@@ -17,21 +17,21 @@ export default (
         found = 0,
 
         read_cb = (
-          (_,bs) => {
+          (_,block_size) => {
             a: {
               for (
                 var
                   i = 0
                 ;
-                i<bs;
-                i+=el
+                i<block_size;
+                i+=entry_length
               ) {
                 if (
-                  cond(r, c,s, i,el, found,limit, block_id)
+                  cond(r, cursor,response, i,entry_length, found,limit, block_id)
                   &&
                   ((++found) === limit)
                 ) {
-                  cb(r,limit,s);
+                  cb(r,limit,response);
                   break a;
                 }
               };
@@ -39,16 +39,16 @@ export default (
               check(from,to)
               ? (
                 (block_id++),
-                read(fd,c,0,bs,(from=iter(from,bs)),read_cb)
+                read(fd,cursor,0,block_size,(from=iter(from,block_size)),read_cb)
               )
-              : cb(r,found,s);
+              : cb(r,found,response);
             }
             return undefined;
           }
         )
       ;
       return (
-        read(fd,c,0,bs,from,read_cb),
+        read(fd,cursor,0,block_size,from,read_cb),
         undefined
       );
     }

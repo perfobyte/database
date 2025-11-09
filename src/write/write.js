@@ -47,8 +47,8 @@ export default (
                                 prev_found = found,
                                 i = 0
                             ;
-                            i<block_size;
-                            i+=entry_length
+                            i < block_size;
+                            i += entry_length
                         ) {
                             if (
                                 cond(r, cursor,response, i,entry_length, found,limit, block_id)
@@ -63,9 +63,9 @@ export default (
                         };
 
                         (found > prev_found)
-                        ? write(fd, cursor, 0, block_size, from, write_cb);
+                        ? write(fd, cursor, 0, block_size, from, write_cb)
                         : write_cb(null)
-                    }
+                    };
                     return undefined;
                 }
             )
